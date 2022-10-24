@@ -55,13 +55,15 @@ LagrangeInterpolationPolynomial[xvals_, yvals_] := Simplify[
 - построим интерполационен полином $p(x)$ на функцията $\sin(x)$ по дадени 9 възела,
 - начертаем графиките на интерполиращия полином и дадената функция,
 - сметнeмем абсолютната грешка и да я начертаем графично.
-```mathematica	
+```mathematica
+f[x_]:=Sin[x];
 xvals = {0, Pi/6, Pi/4, Pi/3, Pi/2, 2Pi/3, 3Pi/4, 5Pi/6, Pi};
-yvals = {0, 1/2, Sqrt[2]/2, Sqrt[3]/2, 1, Sqrt[3]/2, Sqrt[2]/2, 1/2, 0};
+yvals = f[xvals];
+
 p[x_]=LagrangeInterpolationPolynomial[xvals, yvals]
 
-Plot[{Sin[x], p[x]}, {x, 0, Pi}, PlotLegends->"Expressions"]
+Plot[{f[x], p[x]}, {x, 0, Pi}, PlotLegends->"Expressions"]
 
-error[x_] = Abs[Sin[x] - p[x]]
+error[x_] = Abs[f[x] - p[x]]
 Plot[error[x], {x, 0, Pi}, PlotLegends->"Expressions"]
 ```
