@@ -2,11 +2,27 @@
 
 ## Полиноми
 
+#### Алгебрични полиноми
 Дефинираме множеството от абгебрични полиноми от степен ненадминаваща $n$ като:
 $$\Pi_n = \left\lbrace \displaystyle\sum_{0\le k\le n}\ a_k x_k \Bigg| a_k \in \mathbb{R} \right\rbrace$$
 
+#### Тригонометрични полиноми
 Дефинираме тригонометрични полиноми от ред $n$ като:
 $$\tau_n = \left\lbrace \dfrac{a_0}{2}+\displaystyle\sum_{1\le k\le n}\ a_k \cos(kx) + b_k \sin(kx) \Bigg| {a_k,b_k} \in \mathbb{R} \right\rbrace$$
+
+#### Полиноми на Чебишов
+Дефинираме полиномите на Чебишов от ред $n$ като:
+$$T_n(x)= \cos(n \arccos(x)), x\in[-1,1]$$
+
+Може да се забележи, че:
+$T_{n+1}(x)=2xT_n(x)-T_{n-1}(x)$
+$T_n(x) \in \Pi_n$ (точно $n$)
+$T_n(x) =2^{n-1}x^n + \cdot\cdot\cdot$
+$T_n(x)$ е четна при $n$-четно и нечетна при $n$-нечетно
+$|T_n(x)| \le 1$
+$T_n(x) = 0 \Leftrightarrow \xi_k = \cos\dfrac{(2k-1)\pi}{2n}, k\in\lbrace 1,\cdot\cdot\cdot,n\rbrace$ 
+
+$\Rightarrow$ полиномите на Чебишов от I род $T_n(x)$ са **алгебрични полиноми** от степен $n$
 
 ## Подходи за приближаване
 

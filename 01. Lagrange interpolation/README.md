@@ -36,6 +36,7 @@ $$L_n(f,x) = \displaystyle\sum_{0 \le k \le n} f(x_k) l_{n,k}(x)$$
 Интерполационният полином на Лагранж от степен $n$ за $f$ с възли $x_0,\cdot\cdot\cdot, x_n$ има свойството $L_n(f,x_i)=f(x_i)$ за $i \in \lbrace 0,\cdot\cdot\cdot,n\rbrace$
 ### Грешка на интерполацията
 Нека $f(x)$ e $(n+1)$ пъти диференцируема в  интервала $[a,b]$ и $a\le x_0 < x_1 < \cdot\cdot\cdot < x_n \le b$ и $L_n(f,x)$ е интерполационния полином на Лагранж от степен $n$, който интерполира функцията $f(x)$ в точките $\{(x_0, y_0), \cdot\cdot\cdot, (x_n, y_n)\}$. Тогава $$\forall x \in [a,b] \exists \xi \in (a,b) : f(x) - L_n(f,x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \omega(x)$$
+Тогава грешката на интерполацията е $R_n(f,x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \omega(x)$.
 
 ### Смятане на интерполационния полином на Лагранж с помощта на Wolfram Mathematica
 
