@@ -34,6 +34,7 @@ $$l_{n,k}(x)=\displaystyle\prod_{\substack{i=0 \\ i \neq k}}^n \frac{x-x_i}{x_k-
 ### Интерполационен полином на Лагранж
 $$L_n(f,x) = \displaystyle\sum_{0 \le k \le n} f(x_k) l_{n,k}(x)$$
 Интерполационният полином на Лагранж от степен $n$ за $f$ с възли $x_0,\cdot\cdot\cdot, x_n$ има свойството $L_n(f,x_i)=f(x_i)$ за $i \in \lbrace 0,\cdot\cdot\cdot,n\rbrace$
+
 ### Грешка на интерполацията
 Нека $f(x)$ e $(n+1)$ пъти диференцируема в  интервала $[a,b]$ и $a\le x_0 < x_1 < \cdot\cdot\cdot < x_n \le b$ и $L_n(f,x)$ е интерполационния полином на Лагранж от степен $n$, който интерполира функцията $f(x)$ в точките $\{(x_0, y_0), \cdot\cdot\cdot, (x_n, y_n)\}$. Тогава $$\forall x \in [a,b] \exists \xi \in (a,b) : f(x) - L_n(f,x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \omega(x)$$
 Тогава грешката на интерполацията е $R_n(f,x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!} \omega(x)$.
@@ -41,13 +42,15 @@ $$L_n(f,x) = \displaystyle\sum_{0 \le k \le n} f(x_k) l_{n,k}(x)$$
 ### Смятане на интерполационния полином на Лагранж с помощта на Wolfram Mathematica
 
 ```mathematica	
-LagrangeInterpolationPolynomial[xvals_, yvals_] := Simplify[
+LagrangeBasisPolynomial[nodes_,k_,x_] := Product[
+    (x - nodes[[i]]) / (nodes[[k]] - nodes[[i]]),
+    {i, Delete[Range[1, Length[nodes] ], k] } 
+]
+                  
+LagrangeInterpolationPolynomial[nodes_, values_,x_] := Simplify[
     Sum[
-      yvals[[i]] * Product[
-                	(x - xvals[[k]]) / (xvals[[i]] - xvals[[k]]),
-                  {k, Delete[Range[1, Count[xvals, _ ] ], i] } 
-                  ],
-      {i, 1, Count[xvals, _ ] } 
+    values[[i]] * LagrangeBasisPolynomial[nodes,i,x], 
+    {i, 1, Length[nodes] } 
     ] 
 ]
 ```
@@ -58,12 +61,14 @@ LagrangeInterpolationPolynomial[xvals_, yvals_] := Simplify[
 - сметнeмем абсолютната грешка и да я начертаем графично.
 ```mathematica
 f[x_]:=Sin[x];
-xvals = {0, Pi/6, Pi/4, Pi/3, Pi/2, 2Pi/3, 3Pi/4, 5Pi/6, Pi};
-yvals = f[xvals];
+nodes = {0, Pi/6, Pi/4, Pi/3, Pi/2, 2Pi/3, 3Pi/4, 5Pi/6, Pi};
+values = f[xvals];
 
-p[x_]=LagrangeInterpolationPolynomial[xvals, yvals]
+p[x_]=LagrangeInterpolationPolynomial[nodes, values]
 
 Plot[{f[x], p[x]}, {x, 0, Pi}, PlotLegends->"Expressions"]
+
+Show[Plot[p[x],{x,0,Pi}],ListPlot[Transpose[{nodes,values}]]]
 
 error[x_] = Abs[f[x] - p[x]]
 Plot[error[x], {x, 0, Pi}, PlotLegends->"Expressions"]
