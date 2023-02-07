@@ -2,6 +2,8 @@
 
 ## Полиноми
 
+### Обобщени полиноми
+
 #### Алгебрични полиноми
 Дефинираме множеството от абгебрични полиноми от степен ненадминаваща $n$ като:
 $$\Pi_n = \left\lbrace \displaystyle\sum_{0\le k\le n}\ a_k x_k \Bigg| a_k \in \mathbb{R} \right\rbrace$$
@@ -11,6 +13,8 @@ $$\Pi_n = \left\lbrace \displaystyle\sum_{0\le k\le n}\ a_k x_k \Bigg| a_k \in \
 $$\tau_n = \left\lbrace \dfrac{a_0}{2}+\displaystyle\sum_{1\le k\le n}\ a_k \cos(kx) + b_k \sin(kx) \Bigg| {a_k,b_k} \in \mathbb{R} \right\rbrace$$
 
 #### Полиноми на Чебишов
+
+###### Полиноми от I род
 Дефинираме полиномите на Чебишов от ред $n$ като:
 
 $$T_n(x)= \cos(n \arccos(x)), x\in[-1,1]$$
@@ -31,6 +35,8 @@ $T_n(x) = 0 \Leftrightarrow \xi_k = \cos\dfrac{(2k-1)\pi}{2n}, k\in\lbrace 1,\cd
 
 
 $\Rightarrow$ полиномите на Чебишов от I род $T_n(x)$ са **алгебрични полиноми** от степен $n$
+
+###### Полиноми от II род
 
 
 ## Подходи за приближаване

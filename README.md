@@ -1,1 +1,1 @@
-# NumericalAnalysis
+# Числени методи
