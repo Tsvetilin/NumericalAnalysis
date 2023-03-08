@@ -49,7 +49,7 @@ $\Rightarrow$ полиномите на Чебишов от I род $T_n(x)$ с
 Нека $\mathbb{F}$ - пространство от функции
 Дефинираме _метрика_ $\rho(f,g): \mathbb{F} \times \mathbb{F} \rightarrow \mathbb{R}^{\ge 0}$
 - $\rho(f,g) \ge 0$ и $\rho(f,g)=0 \Longleftrightarrow f \equiv g$
-- $\rho(f,g) \ge 0 = \rho(g,f)$
-- $\rho(f,g) \ge 0 + \rho(g,h) \ge \rho(f,h)$
+- $\rho(f,g) = \rho(g,f)$
+- $\rho(f,g) + \rho(g,h) \ge \rho(f,h)$
 
 Тогава казваме, че $f$ е _приближена_ от $p$ когато $\rho(f,p)$ е достатъчно малко.
