@@ -49,8 +49,8 @@ LagrangeBasisPolynomial[nodes_,k_,x_] := Product[
                   
 LagrangeInterpolationPolynomial[nodes_, values_,x_] := Simplify[
     Sum[
-    values[[i]] * LagrangeBasisPolynomial[nodes,i,x], 
-    {i, 1, Length[nodes] } 
+        values[[i]] * LagrangeBasisPolynomial[nodes,i,x], 
+        {i, 1, Length[nodes] } 
     ] 
 ]
 ```
@@ -62,7 +62,7 @@ LagrangeInterpolationPolynomial[nodes_, values_,x_] := Simplify[
 ```mathematica
 f[x_]:=Sin[x];
 nodes = {0, Pi/6, Pi/4, Pi/3, Pi/2, 2Pi/3, 3Pi/4, 5Pi/6, Pi};
-values = f[xvals];
+values = f[nodes];
 
 p[x_]=LagrangeInterpolationPolynomial[nodes, values]
 
