@@ -38,3 +38,14 @@ $$"=" \Leftrightarrow t_k = t_k^* \Leftrightarrow x_k = x_k^*$$
 $\Rightarrow |R_n(f,x)| \le \dfrac{M_{n+1}}{(n+1)!}\cdot \dfrac{(b-a)^{n+1}}{2^{2n+1}}$ за $x_k \equiv x_k^*$
 
 $\Rightarrow$ най-добрите възли за интерполация са нулите на $(n+1)$-вия полином на Чебишов от I род, транслирани към интервала $[a,b]$. Така получаваме минималната възможна грешка при интерполация на $f(x)$ с $L_n(f,x)$ в $[a,b]$.
+
+
+## Смятане на интерполационния полином с минимална грешка с помощта на Wolfram Mathematica
+
+Един пример за изчисляване на функцията $f$ в интервала $[-1,1]$ с минимална грешка:
+
+```mathematica
+ChebishNodes=Table[Cos[(2k-1)Pi/(2*10)],{k,1,10}]
+res[x_]:=LagrangePoly[ChebishNodes,f[ChebishNodes],x]
+Plot[Abs[f[x]-res[x]],{x,-1,1}]
+```
